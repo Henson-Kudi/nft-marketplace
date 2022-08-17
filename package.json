@@ -1,4 +1,10 @@
 {
+    "name": "contract-server",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/Henson-Kudi/nft-marketplace.git",
+    "author": "Henson-Kudi <amahkudi@gmail.com>",
+    "license": "MIT",
     "devDependencies": {
         "@nomicfoundation/hardhat-chai-matchers": "^1.0.2",
         "@nomicfoundation/hardhat-network-helpers": "^1.0.3",
@@ -19,6 +25,17 @@
         "solidity-coverage": "^0.7.21"
     },
     "dependencies": {
-        "@openzeppelin/contracts": "^4.7.3"
+        "@openzeppelin/contracts": "^4.7.3",
+        "@pinata/sdk": "^1.1.26",
+        "express": "^4.18.1",
+        "nft.storage": "^7.0.0"
+    },
+    "scripts": {
+        "dev" : "nodemon server.js",
+        "test:localhost" : "hardhat test --network localhost",
+        "test:production" : "hardhat test --network mainet",
+        "deploy:localhost" : "hardhat deploy --network localhost",
+        "compile" : "hardhat compile",
+        "coverage" : "hardhat coverage"
     }
 }
