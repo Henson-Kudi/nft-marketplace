@@ -28,14 +28,16 @@
         "@openzeppelin/contracts": "^4.7.3",
         "@pinata/sdk": "^1.1.26",
         "express": "^4.18.1",
-        "nft.storage": "^7.0.0"
+        "express-fileupload": "^1.4.0",
+        "nft.storage": "^7.0.0",
+        "pg": "^8.7.3"
     },
     "scripts": {
-        "dev" : "nodemon server.js",
-        "test:localhost" : "hardhat test --network localhost",
-        "test:production" : "hardhat test --network mainet",
-        "deploy:localhost" : "hardhat deploy --network localhost",
-        "compile" : "hardhat compile",
-        "coverage" : "hardhat coverage"
+        "dev": "nodemon server.js",
+        "test:localhost": "hardhat test --network localhost",
+        "test:production": "hardhat test --network mainet",
+        "deploy:localhost": "hardhat deploy --network localhost",
+        "compile": "hardhat compile",
+        "coverage": "hardhat coverage"
     }
 }
