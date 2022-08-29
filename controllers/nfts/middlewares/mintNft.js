@@ -51,9 +51,8 @@ module.exports = async (req, res) => {
     // start_time
     // end_time
     // collection_id
-    // data.from_address,
-    // data.to_address,
-    // data.value,
+    // from_address,
+    // to_address,
 
     try {
         const { rows } = await pool.query(qs, [

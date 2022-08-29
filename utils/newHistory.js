@@ -3,7 +3,7 @@ const pool = require("../database")
 module.exports = async (data = {}) => {
     const qs = `
         INSERT INTO
-            nft-history(
+            nft_history(
                 block_hash,
                 block_timestamp,
                 transaction_hash,

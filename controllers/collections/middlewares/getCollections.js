@@ -7,7 +7,8 @@ module.exports = async (req, res) => {
             collections.name,
             collections.description,
             logo,
-            cover,
+            featured_image,
+            banner,
             url_format,
             creator,
             owner,
@@ -18,7 +19,7 @@ module.exports = async (req, res) => {
             facebook,
             youtube,
             category_id,
-            collection_categories.name
+            collection_categories.name AS category_name
         FROM
             collections
         LEFT JOIN

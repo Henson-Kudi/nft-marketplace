@@ -27,8 +27,18 @@ module.exports = async (req, res) => {
         DELETE FROM auctions WHERE nft_address = $1 AND token_id = $2
     `
 
+    const updateOffersQs = `
+        UPDATE offers
+        SET owner = $1
+        WHERE
+            token_id = $2 AND
+            nft_address = $3
+    `
+
     try {
         await pool.query(updateQs, [data.owner, data.token_id, data.nft_address])
+
+        await pool.query(updateOffersQs, [data.owner, data.token_id, data.nft_address])
 
         await newHistory(data)
 
