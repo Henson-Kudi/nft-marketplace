@@ -97,7 +97,7 @@ module.exports = async (req, res) => {
                 data.log_index,
                 data.block_number,
                 data.function_name,
-                data.function_descL,
+                data.function_desc,
                 data.marketplace_address,
                 data.nft_address,
                 data.price,
@@ -122,7 +122,7 @@ module.exports = async (req, res) => {
                 data.log_index,
                 data.block_number,
                 data.function_name,
-                data.function_descL,
+                data.function_desc,
                 data.marketplace_address,
                 data.nft_address,
                 data.price,
@@ -136,12 +136,10 @@ module.exports = async (req, res) => {
             ])
         }
 
-        return res
-            .status(200)
-            .json({
-                message: `NFT Listed for ${data.status === "listed" ? "sale" : "auction"}`,
-                status: 200,
-            })
+        return res.status(200).json({
+            message: `NFT Listed for ${data.status === "listed" ? "sale" : "auction"}`,
+            status: 200,
+        })
     } catch (err) {
         console.log(err)
 

@@ -2,6 +2,8 @@ require("dotenv").config()
 const express = require("express")
 const path = require("path")
 
+const pool = require("./database")
+
 const uploads = require("./controllers/file-uploads")
 
 const collections = require("./controllers/collections")
@@ -51,6 +53,20 @@ app.use("/api/nfts", nfts)
 app.use("/api/listings", listings)
 
 app.use("/api/offers", offers)
+
+app.get("/api/categories", async (req, res) => {
+    const qs = `SELECT * FROM collection_categories`
+
+    try {
+        const { rows: data } = await pool.query(qs)
+
+        return res.status(200).json(data)
+    } catch (err) {
+        console.log(err)
+
+        return res.status(500).json(err)
+    }
+})
 
 app.listen(PORT, () => {
     console.log(`App listening on ${PORT}`)

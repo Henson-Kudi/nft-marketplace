@@ -164,7 +164,7 @@ contract NftMarketplace is ReentrancyGuard {
             revert PriceMustBeAboveZero();
         }
 
-        if (endTime < _getNow()) {
+        if ((endTime / 1000) < _getNow()) {
             revert InvalidTime();
         }
 

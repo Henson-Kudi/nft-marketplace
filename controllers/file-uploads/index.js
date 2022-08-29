@@ -2,9 +2,9 @@ const Router = require("express").Router()
 const path = require("path")
 const expressFileUpload = require("express-fileupload")
 const { savetoFs, saveJSONToIpfs } = require("../../scripts/upload-to-pinata")
-const saveFileToPinata = require("./middlewares/saveFileToPinata")
+const { saveToPinata } = require("./middlewares/saveToPinata")
 
-Router.post("/", expressFileUpload({ createParentPath: true }), savetoFs, saveFileToPinata)
+Router.post("/nft-data", expressFileUpload({ createParentPath: true }), savetoFs, saveToPinata)
 Router.post("/json", async (req, res) => {
     const data = req.body
 
